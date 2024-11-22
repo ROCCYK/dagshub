@@ -13,6 +13,18 @@ import mlflow
 import mlflow.sklearn # https://mlflow.org/docs/latest/python_api/index.html
 from mlflow.models import infer_signature
 #mlflow.start_run()
+import dagshub
+import mlflow
+
+dagshub.init("dagshub", "ROCCYK", mlflow=True)
+mlflow.start_run()
+
+# train your model...
+
+mlflow.log_param("parameter name ", "value")
+mlflow.log_metric("metric name", 1)
+
+mlflow.end_run()
 
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
