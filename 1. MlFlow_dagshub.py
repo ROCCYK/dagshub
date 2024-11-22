@@ -13,18 +13,6 @@ import mlflow
 import mlflow.sklearn # https://mlflow.org/docs/latest/python_api/index.html
 from mlflow.models import infer_signature
 #mlflow.start_run()
-import dagshub
-import mlflow
-
-dagshub.init("dagshub", "ROCCYK", mlflow=True)
-mlflow.start_run()
-
-# train your model...
-
-mlflow.log_param("parameter name ", "value")
-mlflow.log_metric("metric name", 1)
-
-mlflow.end_run()
 
 logging.basicConfig(level=logging.WARN)
 logger = logging.getLogger(__name__)
@@ -84,7 +72,7 @@ if __name__ == "__main__":
         mlflow.log_metric("mae", mae)
 
         # For remote server only
-        remote_server_uri = "https://dagshub.com/NOOPAJ/ML-Flow-Demo.mlflow"
+        remote_server_uri = "https://dagshub.com/api/v1/repo-buckets/s3/ROCCYK"
         mlflow.set_tracking_uri(remote_server_uri)
 
 
